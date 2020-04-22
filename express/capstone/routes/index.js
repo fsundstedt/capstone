@@ -3,7 +3,7 @@ var router = express.Router();
 const cors = require('cors');
 const Apps = require("../models/apps.js");
 const AddUser = require("../models/addUser.js");
-const Apps = require("../models/apps.js");
+const Users = require("../models/users.js");
 
 const PORT = 2000;
 const app = express();
