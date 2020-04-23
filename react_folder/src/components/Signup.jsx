@@ -21,12 +21,7 @@ class Signup extends Component {
     lastName: "",
     email: "",
     password: "",
-    contact: "",
-    submitFirstName: "",
-    submitLastName: "",
-    submitEmail: "",
-    submitPassword: "",
-    submitContact: ""
+    contact: ""
   };
 
     handleChange = (e) => {
@@ -38,34 +33,25 @@ class Signup extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
 
-    this.setState({
-      submitFirstName: this.firstName,
-      submitLastName: this.lastName,
-      submitEmail: this.email,
-      submitPassword: this.password,
-      submitContact: this.contact
-    })
+    const { firstName, lastName, email, password, contact } = this.state;
 
-    console.log(this.submitFirstName)
-    console.log(this.firstName)
     const data = {
-      first_name: this.submitFirstName,
-      last_name: this.submitLastName,
-      email: this.submitEmail,
-      user_password: this.submitPassword,
-      is_admin: "no",
-      contact_me: this.submitContact
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      user_password: password,
+      is_admin: 'no',
+      contact_me: contact,
     };
-    const url = "http://localhost:2000/adduser";
 
+    const url = 'http://localhost:2000/adduser';
     const response = await postAPI(url, data);
-    console.log(this.submitFirstName);
-
+    
     if (response.status === 200) {
-      alert("Account Created");
+      alert('Account Created');
     }
     if (response.status !== 200) {
-      alert("Unable to sign up. Please try again later or go to login page.");
+      alert('Unable to sign up. Please try again later or go to login page.');
     }
   };
 
@@ -76,7 +62,7 @@ class Signup extends Component {
     return (
       <div>
           <h1>Sign Up Here!</h1>
-        <form onSubmit={() => this.handleSubmit()}>
+        <form onSubmit={(e) => this.handleSubmit()}>
           <input
             type="text"
             data-testid="messageText"

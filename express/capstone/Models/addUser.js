@@ -2,7 +2,7 @@ const db = require("./conn.js");
 
 class AddUser {
 
-  static async addUsers(
+  static async addUser(
       first_name,
       last_name,
       email,
