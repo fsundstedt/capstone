@@ -1,5 +1,5 @@
-import React from "./node_modules/react";
-import { Link } from "./node_modules/react-router-dom";
+import React from "react";
+// import { Link } from "./node_modules/react-router-dom";
 
 function Header() {
   const handleClick = (e) => {
@@ -8,7 +8,7 @@ function Header() {
   };
   const handleClick2 = (e) => {
     e.preventDefault();
-    window.location.href = "https://localhost:3000/signup";
+    window.location.href = "https://localhost:2000/adduser";
   };
 
   return (

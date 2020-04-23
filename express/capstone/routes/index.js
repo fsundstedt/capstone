@@ -11,7 +11,6 @@ const app = express();
 app.use(cors())
 
 /* GET home page. */
-<<<<<<< HEAD
 app.get('/', function(req, res, next) {
   res.send('Welcome to API').status(200);
 });
@@ -50,10 +49,6 @@ app.post("/adduser", async (req, res) => {
 
 app.listen(PORT, () => {
 console.log(`Server is listening on port: ${PORT}`);
-=======
-router.get('/', function(req, res, next) {
-  res.send('Welcome to API').status(200);
->>>>>>> d868359416e5c682e278c8ad140132c60c880b1a
 });
 
 module.exports = router;

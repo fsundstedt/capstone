@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import papers from "../images/papers.png";
+// import papers from "../images/papers.png";
 
 class Intro extends Component {
   render() {
