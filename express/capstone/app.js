@@ -1,12 +1,15 @@
 const createError = require('http-errors'),
   express = require('express'),
   path = require('path'),
+  cors = require('cors'),
   cookieParser = require('cookie-parser'),
   logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 
 const app = express();
+
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());

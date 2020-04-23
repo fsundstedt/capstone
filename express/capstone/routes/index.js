@@ -23,6 +23,9 @@ router.get('/apps', async function (req, res, next) {
 
 /* Adds new user */
 router.post('/adduser', async (req, res) => {
+
+  try {
+
   const {
     first_name,
     last_name,
@@ -40,12 +43,19 @@ router.post('/adduser', async (req, res) => {
     contact_me
   );
 
+  console.log
+
   if (response.command === 'INSERT' && response.rowCount >= 1) {
     res.sendStatus(200);
   } else {
     res.send("Could not add new user").status(409);
   }
   res.sendStatus(200);
-});
+  }
+  catch (err) {
+    return err;
+  }
+  }
+);
 
 module.exports = router;

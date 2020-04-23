@@ -33,6 +33,8 @@ class Signup extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
 
+    try {
+    
     const { firstName, lastName, email, password, contact } = this.state;
 
     const data = {
@@ -41,18 +43,22 @@ class Signup extends Component {
       email: email,
       user_password: password,
       is_admin: 'no',
-      contact_me: contact,
+      contact_me: contact
     };
 
     const url = 'http://localhost:2000/adduser';
     const response = await postAPI(url, data);
-    
+
     if (response.status === 200) {
       alert('Account Created');
     }
     if (response.status !== 200) {
       alert('Unable to sign up. Please try again later or go to login page.');
     }
+  }
+  catch (err) {
+    return err;
+  }
   };
 
   render() {
@@ -62,7 +68,7 @@ class Signup extends Component {
     return (
       <div>
           <h1>Sign Up Here!</h1>
-        <form onSubmit={(e) => this.handleSubmit()}>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
           <input
             type="text"
             data-testid="messageText"
